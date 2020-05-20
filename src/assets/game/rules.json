@@ -1,0 +1,11 @@
+{
+	"game": "codenames",
+	"cards": 25,
+	"roles": {
+		"blue_agent": 8,
+		"red_agent": 8,
+		"bystander": 7,
+		"double_agent": 1,
+		"assassin": 1
+	}
+}

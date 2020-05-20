@@ -1,0 +1,32 @@
+/*
+ *	Name: Variables
+ *
+ *	CSS variables.
+ *
+ */
+
+html {
+	--base-font-size: 16px;
+}
+
+body {
+	--bg-color: #fff;
+	--body-color: #444;
+	--title-color: #111;
+	--link-color: #6b17e6;
+	--primary-color: #0069ff;
+	--action-color: #15cd72;
+
+	// Global
+	--space: 3.5rem;
+	--content-width: 900px;
+	--header-height: 100px;
+	--border-color: #e5e8ed;
+	--radius: 8px;
+	--shadow: 0 10px 20px rgba(3, 27, 78, 0.1);
+
+	// Game-specific
+	--card-height: 100px;
+	--card-width: 200px;
+	--card-margin: 1rem;
+}
