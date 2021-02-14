@@ -12,7 +12,7 @@ export default new Vuex.Store({
 		// GAME STATES
 		board: [],
 		// GAME DYNAMIC
-		role: 'player',
+		role: 'spy',
 		selected_card: false,
 		// MISC
 		gameMenuExpanded: true //TODO: Persist for better UX.

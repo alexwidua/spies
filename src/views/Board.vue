@@ -11,6 +11,7 @@
 				/>
 			</div>
 		</div>
+		<div class="board__link" v-html="'Board ID: ' + current_route" />
 	</div>
 </template>
 
@@ -95,5 +96,14 @@ export default {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+
+	&__link {
+		margin: 4em auto;
+		width: 256px;
+		text-align: center;
+		font-family: 'IBM Plex Mono';
+		font-weight: 600;
+		color: rgba(0, 0, 0, 0.2);
+	}
 }
 </style>

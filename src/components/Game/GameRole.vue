@@ -5,18 +5,26 @@
 			<span
 				v-show="!isSpymaster || gameMenuExpanded"
 				@click="assignRole('spy')"
-				class="roles__menu--select"
+				class="roles__menu__select"
 				:class="{ 'roles__menu--isSelected': !isSpymaster }"
 			>
-				Spy ({{ roles.spy.length }})
+				Spy
+				<span
+					class="roles__menu__select--amount"
+					v-html="roles.spy.length"
+				/>
 			</span>
 			<span
 				v-show="isSpymaster || gameMenuExpanded"
 				@click="assignRole('spymaster')"
-				class="roles__menu--select"
+				class="roles__menu__select"
 				:class="{ 'roles__menu--isSelected': isSpymaster }"
 			>
-				Spymaster ({{ roles.spymaster.length }})
+				Spymaster
+				<span
+					class="roles__menu__select--amount"
+					v-html="roles.spymaster.length"
+				/>
 			</span>
 		</div>
 	</div>
@@ -157,24 +165,33 @@ export default {
 		font-weight: bold;
 		text-transform: uppercase;
 		color: rgba(3, 27, 78, 0.7);
+		letter-spacing: 0.06em;
 	}
 
 	&__menu {
 		display: flex;
 		justify-content: flex-end;
 		flex-direction: column;
-		font-size: 2em;
+		font-size: 1.75em;
 
-		&--select {
+		&__select {
 			cursor: pointer;
 			opacity: 0.5;
+
+			&--amount {
+				background: rgba(0, 0, 0, 0.1);
+				width: 40px;
+				height: 40px;
+				display: inline-block;
+				text-align: center;
+				border-radius: 100%;
+				margin-left: 0.1em;
+			}
 		}
 
 		// TODO: Change units.
 		&--isSelected {
 			font-weight: 600;
-			padding: 4px 8px;
-			margin: -4px -8px;
 			opacity: 1;
 		}
 	}

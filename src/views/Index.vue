@@ -1,8 +1,8 @@
 <template>
 	<div class="main">
 		<div class="hero-text">
-			Spies is an adaptation of the well-known board game Codenames by
-			Vlaada Chvátil using Vue and socket.io.
+			<span style="font-weight: 600">Spies</span> is an adaptation of the
+			well-known board game Codenames by Vlaada Chvátil.
 		</div>
 		<Join />
 		<div class="create-container">
@@ -45,6 +45,10 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	background: var(--primary-color);
+
+	& a {
+		color: white !important;
+	}
 }
 
 .hero-text {
@@ -52,7 +56,6 @@ export default {
 	text-align: center;
 	font-size: 1.7em;
 	color: #fff;
-	font-weight: 600;
 }
 
 // TODO: Move to Base
@@ -78,6 +81,7 @@ p {
 		text-transform: uppercase;
 		line-height: 5em;
 		margin-left: var(--space);
+		letter-spacing: 0.05em;
 	}
 }
 </style>

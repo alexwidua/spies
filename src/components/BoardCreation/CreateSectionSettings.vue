@@ -1,9 +1,13 @@
 <template>
 	<div class="create__settings">
 		<div class="create__settings__section">
-			<span class="create__settings__section--title --language"
-				>Choose a language</span
-			>
+			<div style="margin-bottom:1em;">
+				<span class="create__onboarding" v-html="'1'" />
+				<span
+					class="create__settings__section--title"
+					v-html="'Choose a language'"
+				/>
+			</div>
 			<ul class="settings__languages">
 				<li
 					v-for="language in words"
@@ -15,20 +19,27 @@
 						)
 					}"
 					@click="selectLanguage(language.id)"
-				>
-					{{ language.language }}
-				</li>
+					v-html="language.language"
+				/>
 			</ul>
 		</div>
-		<div class="--divider" />
+		<!-- <div class="--divider" />
 		<div class="create__settings__section">
-			<span class="settings__custom" @click="useCustomWords = true">
-				Add custom words
-				<span class="create__settings__section--title--icon">
-					<span v-if="!useCustomWords">+</span>
-					<span v-else> {{ custom_word_array_length }}</span>
-				</span>
-			</span>
+			<div style="margin-bottom:1em;">
+				<span
+					class="create__onboarding create__onboarding--optional"
+					v-html="'Optional'"
+				/>
+				<span
+					class="create__settings__section--title"
+					v-html="'Add custom words'"
+				/>
+			</div>
+			<div
+				class="settings__custom"
+				@click="useCustomWords = true"
+				v-html="'+ Add words'"
+			/>
 
 			<textarea
 				class="settings__textarea"
@@ -36,7 +47,7 @@
 				v-model="custom_words"
 				placeholder="Add comma seperated custom words"
 			></textarea>
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -103,8 +114,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.create__onboarding {
+	font-family: 'IBM Plex Mono';
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(212, 212, 212);
+	border-radius: 100%;
+	font-weight: 600;
+	margin-right: 0.75em;
+	color: #0069ff;
+
+	&--optional {
+		border: 1px dashed rgb(212, 212, 212);
+		width: auto;
+		padding: 0 1em;
+		border-radius: 32px;
+	}
+}
+
 .create__settings {
-	padding: calc(var(--space) / 2) var(--space);
+	padding: var(--space);
 	position: relative;
 
 	&__section {
@@ -113,6 +146,7 @@ export default {
 		&--title {
 			//opacity: 0.8;
 			//line-height: 4em;
+			font-size: 1.25em;
 
 			&--icon {
 				background: #f2f8ff;
@@ -134,7 +168,6 @@ export default {
 	&__languages {
 		display: flex;
 		flex-direction: row;
-		margin-top: 1em;
 		&--item {
 			font-size: 1.1em;
 			font-weight: 600;
@@ -164,7 +197,20 @@ export default {
 	}
 
 	&__custom {
-		color: var(--primary-color);
+		//color: var(--primary-color);
+		cursor: pointer;
+		//background: #f2f8ff;
+		border: 1px solid rgba(0, 105, 255, 0.2);
+		padding: 0.5em 1em;
+		color: #708db1;
+		display: inline-block;
+		width: auto;
+		border-radius: calc(var(--radius) / 2);
+
+		&:hover {
+			background: #f2f8ff;
+			color: #0069ff;
+		}
 	}
 
 	&__textarea {

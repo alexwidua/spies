@@ -7,11 +7,10 @@
 					class="text--reveal"
 					@click="_revealCard()"
 					v-click-outside="onClickOutside"
-				>
-					Reveal?
-				</span>
+					v-html="'Reveal?'"
+				/>
 			</transition>
-			<span class="text--word">{{ card.word }}</span>
+			<span class="text--word" v-html="card.word" />
 		</div>
 	</div>
 </template>
@@ -140,6 +139,7 @@ export default {
 	width: var(--card-width);
 	margin: var(--card-margin);
 	cursor: pointer;
+	user-select: none;
 }
 
 .role {
@@ -230,6 +230,7 @@ export default {
 		font-size: 1.1em;
 		transform: translateX(-50%) translateY(-50%);
 		transition: all 0.3s ease;
+		border: 1px transparent solid;
 	}
 
 	&--reveal {
@@ -246,7 +247,7 @@ export default {
 		box-shadow: 0 10px 20px rgba(3, 27, 78, 0.1);
 
 		&:hover {
-			background: rgb(255, 145, 0);
+			background: #616161;
 		}
 	}
 }
@@ -263,7 +264,7 @@ export default {
 		top: 85%;
 		transform: translateX(-50%);
 		background: #fff;
-		//border: 1px #eee solid;
+		border: 1px #eee solid;
 		color: #000 !important;
 		padding: 2px 12px;
 		border-radius: 25px;

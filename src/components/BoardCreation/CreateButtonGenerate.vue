@@ -2,7 +2,7 @@
 	<div class="create">
 		<button @click="createBoard()" :disabled="merged_wordlist.length < 24">
 			<span v-if="!selected_language && custom_word_array_length === 0">
-				Choose a language or add custom words
+				Choose a language
 			</span>
 			<!-- Prettier, what the f-? -->
 			<span
@@ -179,12 +179,12 @@ export default {
 <style lang="scss" scoped>
 .create {
 	background: #eee;
-	padding: var(--space);
+	//padding: var(--space);
 	border-bottom-left-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
 }
 button {
-	height: 50px;
+	height: 64px;
 	width: 100%;
 	background: var(--action-color);
 	color: #fff;
@@ -192,7 +192,8 @@ button {
 	color: #b6b6b6;
 	//border: 1px solid rgba(0, 0, 0, 0.1);
 	border: none;
-	border-radius: calc(var(--radius) / 2);
+	border-bottom-left-radius: calc(var(--radius) / 2);
+	border-bottom-right-radius: calc(var(--radius) / 2);
 	transition: all 0.5s ease;
 	cursor: pointer;
 

@@ -2,12 +2,26 @@
 	<div class="score">
 		<div class="score--title">Remaining agents</div>
 		<div class="score__display">
-			<span class="score__display--red">{{
+			<!-- <span class="score__display--red">{{
 				getRemainingAgents('red_agent')
 			}}</span>
 			<span class="score__display--blue">{{
 				getRemainingAgents('blue_agent')
-			}}</span>
+			}}</span> -->
+			<div class="score__agents">
+				<span
+					v-for="(agent, i) in getRemainingAgents('red_agent')"
+					:key="i"
+					class="score__agents__icon score__agents__icon--red"
+				/>
+			</div>
+			<div class="score__agents">
+				<span
+					v-for="(agent, i) in getRemainingAgents('blue_agent')"
+					:key="i"
+					class="score__agents__icon score__agents__icon--blue"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -34,17 +48,19 @@ export default {
 		 *			<'red_agent'> or <'blue_agent'>
 		 */
 		getRemainingAgents(roleParam) {
+			if (!roleParam === 'red_agent' || !roleParam === 'blue_agent') {
+				return 0
+			}
 			let count = 0
-			if (roleParam === 'red_agent' || roleParam === 'blue_agent') {
-				for (var key in this.board) {
-					if (
-						!this.board[key].revealed &&
-						this.board[key].role === roleParam
-					) {
-						count++
-					}
+			for (var key in this.board) {
+				if (
+					!this.board[key].revealed &&
+					this.board[key].role === roleParam
+				) {
+					count += 1
 				}
 			}
+
 			return count
 		}
 	}
@@ -64,6 +80,7 @@ export default {
 		font-weight: bold;
 		color: rgba(3, 27, 78, 0.7);
 		text-transform: uppercase;
+		letter-spacing: 0.06em;
 	}
 
 	&__display {
@@ -78,6 +95,27 @@ export default {
 
 		&--blue {
 			color: rgb(34, 117, 194);
+		}
+	}
+
+	&__agents {
+		&__icon {
+			height: 24px;
+			width: 24px;
+			border-radius: 100%;
+			display: inline-block;
+			margin-left: 0.15em;
+
+			&--red {
+				background: #ff7d7b;
+			}
+
+			&--blue {
+				background: #418cff;
+			}
+			&--van {
+				background: #000;
+			}
 		}
 	}
 }

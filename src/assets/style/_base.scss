@@ -5,6 +5,7 @@
  *
  */
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&family=Poppins&display=swap');
 * {
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
@@ -21,7 +22,7 @@ body {
 	background-color: var(--bg-color);
 	color: var(--body-color);
 	//transition: color 0.6s, background-color 0.6s;
-	font-family: 'SF Pro Text', -apple-system, system-ui, 'Helvetica Neue',
+	font-family: 'Poppins', -apple-system, system-ui, 'Helvetica Neue',
 		Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;

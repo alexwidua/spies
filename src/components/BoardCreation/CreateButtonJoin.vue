@@ -2,8 +2,18 @@
 	<div class="join">
 		<div class="join--heading">Join a game</div>
 		<div class="join--flex">
-			<input class="join__input" v-model="boardID" />
-			<button class="join__button" @click="joinRoom()">Join</button>
+			<input
+				class="join__input"
+				v-model="boardID"
+				placeholder="Board ID"
+			/>
+			<button
+				class="join__button"
+				:class="{ inactive: !boardID }"
+				@click="joinRoom()"
+			>
+				Join
+			</button>
 		</div>
 	</div>
 </template>
@@ -28,13 +38,18 @@ export default {
 		 *	Joins the room id entered in the input field. Param is the boardID v-model.
 		 */
 		joinRoom() {
-			this.$router.push({ path: `/user/${this.boardID}` })
+			if (this.boardID) {
+				this.$router.push({ path: `/board/${this.boardID}` })
+			}
 		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
+::placeholder {
+	color: rgba(255, 255, 255, 0.3);
+}
 .join {
 	margin: var(--space) 0;
 	width: var(--content-width);
@@ -45,6 +60,7 @@ export default {
 		font-weight: 600;
 		text-transform: uppercase;
 		line-height: 5em;
+		letter-spacing: 0.05em;
 		color: rgb(193, 225, 255);
 	}
 
@@ -75,5 +91,9 @@ export default {
 		border: none;
 		border-radius: var(--radius);
 	}
+}
+
+.inactive {
+	opacity: 0.2;
 }
 </style>
