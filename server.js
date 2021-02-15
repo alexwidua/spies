@@ -13,6 +13,7 @@ app.get(/.*/, (req, res) => {
 })
 
 io.on('connection', (socket) => {
+	console.log(`Client ${socket.id} connected to the server.`)
 	/*
 	 *	When a client joins, it emits the join_room event.
 	 *	Assign a client to the corresponding room (which is the boardID, see Board.vue)
